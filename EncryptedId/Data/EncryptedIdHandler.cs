@@ -1,31 +1,28 @@
 ﻿using Dapper;
 using System.Data;
+using System.Globalization;
 
 namespace EncryptedId.Data;
 
+/// <summary>
+/// Dapper type handler for non-nullable <see cref="EncryptedId"/>.
+/// Stores the underlying <see cref="EncryptedId.Value"/> as an INT in the database.
+/// </summary>
 public class EncryptedIdHandler : SqlMapper.TypeHandler<EncryptedId>
 {
-    public override void SetValue(IDbDataParameter parameter, EncryptedId? value)
+    public override void SetValue(IDbDataParameter parameter, EncryptedId value)
     {
         parameter.Value = value.Value;
     }
 
-    public override EncryptedId? Parse(object value)
+    public override EncryptedId Parse(object value)
     {
-        return new EncryptedId(Convert.ToInt32(value));
-    }
-}
+        if (value is null || value is DBNull)
+        {
+            throw new DataException("Cannot parse null database value into EncryptedId.");
+        }
 
-public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedId?>
-{
-    public override void SetValue(IDbDataParameter parameter, EncryptedId? value)
-    {
-        parameter.Value = value.HasValue ? value.Value : DBNull.Value;
-    }
-
-    public override EncryptedId? Parse(object value)
-    {
-        if (value == null || value == DBNull.Value) return null;
-        return new EncryptedId(Convert.ToInt32(value));
+        var intValue = Convert.ToInt32(value, CultureInfo.InvariantCulture);
+        return new EncryptedId(intValue);
     }
 }

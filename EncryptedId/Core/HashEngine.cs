@@ -1,135 +1,153 @@
-﻿using EncryptedId.Configuration;
+﻿using System;
 using System.Text;
+using EncryptedId.Configuration;
 
 namespace EncryptedId.Core;
 
+/// <summary>
+/// Internal engine responsible for encoding and decoding integer IDs
+/// using a salt-driven shuffled alphabet and base-N conversion.
+/// This is intended for ID obfuscation, not strong cryptography.
+/// </summary>
 internal static class HashEngine
 {
-    private static string? _shuffledAlphabate;
+    private static string? _shuffledAlphabet;
     private static string? _cachedSalt;
-    private static string? _cachedAlphabate;
+    private static string? _cachedAlphabet;
     private static readonly object _lock = new();
 
     /// <summary>
-    /// Calculates the result of multiplying the specified integer by 7 and adding 3.
+    /// Small helper used in the shuffle step to add non-trivial mixing based on the index.
     /// </summary>
-    /// <param name="i">The integer value to be multiplied and used in the calculation.</param>
-    /// <returns>An integer representing the computed value of (<paramref name="i"/> * 7) + 3.</returns>
-    private static int result(int i) => (i * 7) + 3;
-
+    private static int MixIndex(int i) => (i * 7) + 3;
 
     /// <summary>
     /// Generates and returns a shuffled version of the configured alphabet using the current salt value.
+    /// The result is cached and recomputed only when either the salt or the alphabet changes.
     /// </summary>
-    /// <remarks>This method uses the configured salt and alphabet from the application settings to produce a
-    /// deterministic shuffled alphabet. The result is cached for performance and will be recalculated only if the salt
-    /// or alphabet changes. Thread safety is ensured during the shuffle and cache update.</remarks>
-    /// <returns>A string containing the shuffled alphabet based on the current configuration. The returned value is cached and
-    /// reused if the configuration has not changed.</returns>
-    /// <exception cref="InvalidOperationException">Thrown if the salt is not configured or if the alphabet is null or less than 16 characters.</exception>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if the salt is not configured or the alphabet is invalid.
+    /// </exception>
     private static string GetShuffledAlphabet()
     {
-        if(_shuffledAlphabate != null && _cachedSalt == EncryptedConfig.Salt && _cachedAlphabate == EncryptedConfig.Alphabet)
+        if (_shuffledAlphabet != null &&
+            _cachedSalt == EncryptedConfig.Salt &&
+            _cachedAlphabet == EncryptedConfig.Alphabet)
         {
-            return _shuffledAlphabate;
+            return _shuffledAlphabet;
         }
 
         lock (_lock)
         {
             var salt = EncryptedConfig.Salt;
-            var sourceAlphabate = EncryptedConfig.Alphabet;
+            var sourceAlphabet = EncryptedConfig.Alphabet;
 
-            if(string.IsNullOrEmpty(salt))
+            if (string.IsNullOrWhiteSpace(salt))
             {
-                throw new InvalidOperationException("Salt is not configured");
-            }
-            if(string.IsNullOrEmpty(sourceAlphabate))
-            {
-                throw new InvalidOperationException("Alphabate must be at least 16 characters.");
+                throw new InvalidOperationException(
+                    "EncryptedConfig.Salt must be configured before using EncryptedId.");
             }
 
-            var chars = sourceAlphabate.ToCharArray();
+            if (string.IsNullOrWhiteSpace(sourceAlphabet) || sourceAlphabet.Length < 16)
+            {
+                throw new InvalidOperationException(
+                    "EncryptedConfig.Alphabet must be at least 16 characters long.");
+            }
+
+            var chars = sourceAlphabet.ToCharArray();
             var saltLength = salt.Length;
             var inputLength = chars.Length;
 
-            for(int i=0; i< inputLength; i++)
+            // Deterministic salt-based shuffle
+            for (var i = 0; i < inputLength; i++)
             {
                 var saltChar = salt[i % saltLength];
-                var swapIndex = (saltChar + i + result(i)) % inputLength;
-
+                var swapIndex = (saltChar + i + MixIndex(i)) % inputLength;
                 (chars[i], chars[swapIndex]) = (chars[swapIndex], chars[i]);
             }
 
             _cachedSalt = salt;
-            _cachedAlphabate = sourceAlphabate;
-            _shuffledAlphabate = new string(chars);
+            _cachedAlphabet = sourceAlphabet;
+            _shuffledAlphabet = new string(chars);
 
-            return _shuffledAlphabate;
+            return _shuffledAlphabet;
         }
     }
 
-
     /// <summary>
-    /// Encodes a non-negative integer identifier into a string using the configured salt and alphabet.Encodes an integer ID into a string using the Configured Salt/Alphabet.
+    /// Encodes a non-negative integer identifier into a string using the configured salt and alphabet.
     /// </summary>
     /// <param name="id">The integer identifier to encode. Must be non-negative.</param>
-    /// <returns>A string representation of the encoded identifier using the configured alphabet. If <paramref name="id"/> is 0,
-    /// returns a single-character string.</returns>
-    /// <exception cref="ArgumentOutOfRangeException">Thrown when <paramref name="id"/> is negative.</exception>
+    /// <returns>
+    /// A string representation of the encoded identifier using the configured alphabet. If <paramref name="id"/> is 0,
+    /// returns a single-character string. If <see cref="EncryptedConfig.MinLength"/> is set, the result is left-padded
+    /// to that length.
+    /// </returns>
     public static string Encode(int id)
     {
-        if (id < 0) throw new ArgumentOutOfRangeException(nameof(id), "Id must be non negative.");
-
-        var alphabate = GetShuffledAlphabet();
-
-        if(id == 0)
+        if (id < 0)
         {
-            return alphabate[0].ToString();
+            throw new ArgumentOutOfRangeException(nameof(id), "Id must be non-negative.");
+        }
+
+        var alphabet = GetShuffledAlphabet();
+
+        // Special case for zero
+        if (id == 0)
+        {
+            var single = alphabet[0].ToString();
+            return PadToMinLength(single, alphabet);
         }
 
         var sb = new StringBuilder();
-        var baseLen = alphabate.Length;
+        var baseLen = alphabet.Length;
+        var value = id;
 
-        while (id < 0)
+        // Standard base-N encoding using the shuffled alphabet
+        while (value > 0)
         {
-            var rem = id % baseLen;
-            sb.Insert(0, alphabate[rem]);
-            id /= baseLen;
+            var rem = value % baseLen;
+            sb.Insert(0, alphabet[rem]);
+            value /= baseLen;
         }
 
-        return sb.ToString();
+        var encoded = sb.ToString();
+        return PadToMinLength(encoded, alphabet);
     }
 
     /// <summary>
-    /// Decodes a string that was previously encoded into an integer value using a shuffled alphabet. Returns the
-    /// original integer if decoding succeeds; otherwise, returns null.Decodes the string back to an integer.
+    /// Decodes a string that was previously encoded using <see cref="Encode(int)"/> back into the original integer value.
     /// </summary>
-    /// <remarks>If the input string contains any character not present in the shuffled alphabet, or if the
-    /// decoded value exceeds the range of a 32-bit signed integer, the method returns null. The decoding process is
-    /// dependent on the shuffled alphabet used; ensure that the same alphabet is used for both encoding and
-    /// decoding.</remarks>
-    /// <param name="encoded">The encoded string representation of the integer to decode. Cannot be null, empty, or contain characters not
-    /// present in the shuffled alphabet.</param>
-    /// <returns>An integer value decoded from the specified string, or null if the input is invalid, contains unknown
-    /// characters, or if an overflow occurs during decoding.</returns>
-    public static int? Decode(string encoded)
+    /// <param name="encoded">Encoded string representation of the integer.</param>
+    /// <returns>
+    /// The decoded integer value, or <c>null</c> if the input is invalid, contains unknown characters,
+    /// or an overflow occurs during decoding.
+    /// </returns>
+    public static int? Decode(string? encoded)
     {
-        if (string.IsNullOrWhiteSpace(encoded)) return null;
+        if (string.IsNullOrWhiteSpace(encoded))
+        {
+            return null;
+        }
 
         var alphabet = GetShuffledAlphabet();
         var baseLen = alphabet.Length;
-        int result = 0;
+        var result = 0;
 
         foreach (var c in encoded)
         {
-            var val = alphabet.IndexOf(c);
-            if (val == -1) return null; // Character not in alphabet
+            var index = alphabet.IndexOf(c);
+            if (index == -1)
+            {
+                // Character not present in the current alphabet => invalid token
+                return null;
+            }
 
             try
             {
                 checked
                 {
-                    result = (result * baseLen) + val;
+                    result = (result * baseLen) + index;
                 }
             }
             catch (OverflowException)
@@ -139,5 +157,18 @@ internal static class HashEngine
         }
 
         return result;
+    }
+
+    private static string PadToMinLength(string value, string alphabet)
+    {
+        var minLength = EncryptedConfig.MinLength;
+        if (minLength <= 0 || value.Length >= minLength)
+        {
+            return value;
+        }
+
+        var padChar = alphabet[0];
+        var padCount = minLength - value.Length;
+        return new string(padChar, padCount) + value;
     }
 }
