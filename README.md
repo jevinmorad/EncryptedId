@@ -72,33 +72,7 @@ API response:
   "name": "John Doe"
 }
 ```
-
-### On request:
-Frontend sends:
-```json
-{
-  "id": "Xkd02p"
-}
-```
 Controller receives decoded ID automatically.
-
-### 💾 Dapper Integration
-
-Add type handlers once:
-```c#
-SqlMapper.AddTypeHandler(new EncryptedIdHandler());
-SqlMapper.AddTypeHandler(new NullableEncryptedIdHandler());
-```
-
-Works automatically with:
-```sql
-SELECT * FROM Users WHERE Id = @Id;
-```
-
-Where:
-```c#
-EncryptedId Id { get; set; }
-```
 
 ## 🎛 MVC & Model Binding
 
