@@ -1,0 +1,231 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\EncryptedId\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\encryptedid.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\encryptedid.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\converters\\encryptedidtypeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\converters\\encryptedidtypeconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\converters\\encryptedidjsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\converters\\encryptedidjsonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\core\\hashengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\core\\hashengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\configuration\\encryptedconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\configuration\\encryptedconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\data\\encryptedidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\data\\encryptedidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\data\\nullableencryptedidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\data\\nullableencryptedidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|d:\\encryptedid\\encryptedid\\encryptedid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2CCED66-16CC-7F3F-1458-1B5980ED7D83}|EncryptedId\\EncryptedId.csproj|solutionrelative:encryptedid\\encryptedid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 18,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EncryptedId.csproj",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\EncryptedId.csproj",
+              "RelativeDocumentMoniker": "EncryptedId\\EncryptedId.csproj",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\EncryptedId.csproj",
+              "RelativeToolTip": "EncryptedId\\EncryptedId.csproj",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-04T07:05:38.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EncryptedConfig.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Configuration\\EncryptedConfig.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Configuration\\EncryptedConfig.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Configuration\\EncryptedConfig.cs",
+              "RelativeToolTip": "EncryptedId\\Configuration\\EncryptedConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T17:35:01.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EncryptedIdHandler.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Data\\EncryptedIdHandler.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Data\\EncryptedIdHandler.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Data\\EncryptedIdHandler.cs",
+              "RelativeToolTip": "EncryptedId\\Data\\EncryptedIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T16:29:21.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HashEngine.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Core\\HashEngine.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Core\\HashEngine.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Core\\HashEngine.cs",
+              "RelativeToolTip": "EncryptedId\\Core\\HashEngine.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAIwIQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T15:49:39.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EncryptedIdTypeConverter.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Converters\\EncryptedIdTypeConverter.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Converters\\EncryptedIdTypeConverter.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Converters\\EncryptedIdTypeConverter.cs",
+              "RelativeToolTip": "EncryptedId\\Converters\\EncryptedIdTypeConverter.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAEwAwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T16:28:02.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NullableEncryptedIdHandler.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Data\\NullableEncryptedIdHandler.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Data\\NullableEncryptedIdHandler.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Data\\NullableEncryptedIdHandler.cs",
+              "RelativeToolTip": "EncryptedId\\Data\\NullableEncryptedIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T06:13:35.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EncryptedIdJsonConverter.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\Converters\\EncryptedIdJsonConverter.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\Converters\\EncryptedIdJsonConverter.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\Converters\\EncryptedIdJsonConverter.cs",
+              "RelativeToolTip": "EncryptedId\\Converters\\EncryptedIdJsonConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T16:14:31.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EncryptedId.cs",
+              "DocumentMoniker": "D:\\EncryptedId\\EncryptedId\\EncryptedId.cs",
+              "RelativeDocumentMoniker": "EncryptedId\\EncryptedId.cs",
+              "ToolTip": "D:\\EncryptedId\\EncryptedId\\EncryptedId.cs",
+              "RelativeToolTip": "EncryptedId\\EncryptedId.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T16:13:00.284Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1551,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
