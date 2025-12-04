@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
-using EncryptedId.Configuration;
+using EncryptedInt.Configuration;
 
-namespace EncryptedId.Core;
+namespace EncryptedInt.Core;
 
 /// <summary>
 /// Internal engine responsible for encoding and decoding integer IDs

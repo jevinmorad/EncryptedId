@@ -1,4 +1,4 @@
-﻿namespace EncryptedId.Configuration;
+﻿namespace EncryptedInt.Configuration;
 
 /// <summary>
 /// Global configuration for EncryptedId encoding/decoding.

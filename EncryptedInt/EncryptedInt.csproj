@@ -2,12 +2,10 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
 
 		<!-- NuGet package details -->
-		<PackagetId>EncryptedId</PackagetId>
+		<PackagetId>EncryptedInt</PackagetId>
 		<Version>1.0.0</Version>
 		<Authors>Jevin Morad</Authors>
 		<Company></Company>

@@ -1,14 +1,14 @@
-﻿using EncryptedId.Core;
+﻿using EncryptedInt.Core;
 using System.ComponentModel;
 using System.Globalization;
 
-namespace EncryptedId.Converters;
+namespace EncryptedInt.Converters;
 
 /// <summary>
-/// TypeConverter allowing EncryptedId to be used with model binding, query string parsing, etc.
-/// It expects an encoded string and decodes it back to an <see cref="EncryptedId"/>.
+/// TypeConverter allowing EncryptedInt to be used with model binding, query string parsing, etc.
+/// It expects an encoded string and decodes it back to an <see cref="EncryptedInt"/>.
 /// </summary>
-public class EncryptedIdTypeConverter : TypeConverter
+public class EncryptedIntTypeConverter : TypeConverter
 {
     public override bool CanConvertFrom(ITypeDescriptorContext? context, Type sourceType)
     {
@@ -27,10 +27,10 @@ public class EncryptedIdTypeConverter : TypeConverter
             var decoded = HashEngine.Decode(text);
             if (!decoded.HasValue)
             {
-                throw new FormatException("Invalid encoded EncryptedId value.");
+                throw new FormatException("Invalid encoded EncryptedInt value.");
             }
 
-            return new EncryptedId(decoded.Value);
+            return new EncryptedInt(decoded.Value);
         }
 
         return base.ConvertFrom(context, culture, value);

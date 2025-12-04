@@ -1,16 +1,16 @@
-﻿using EncryptedId.Core;
+﻿using EncryptedInt.Core;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace EncryptedId.Converters;
+namespace EncryptedInt.Converters;
 
 /// <summary>
-/// JSON converter that reads/writes <see cref="EncryptedId"/> values
+/// JSON converter that reads/writes <see cref="global::EncryptedInt"/> values
 /// as encoded strings using <see cref="HashEngine"/>.
 /// </summary>
-public class EncryptedIdJsonConverter : JsonConverter<EncryptedId>
+public class EncryptedIntJsonConverter : JsonConverter<EncryptedInt>
 {
-    public override EncryptedId Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override EncryptedInt Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         switch (reader.TokenType)
         {
@@ -20,24 +20,24 @@ public class EncryptedIdJsonConverter : JsonConverter<EncryptedId>
                     var decoded = HashEngine.Decode(text);
                     if (!decoded.HasValue)
                     {
-                        throw new JsonException("Invalid encoded EncryptedId value.");
+                        throw new JsonException("Invalid encoded EncryptedInt value.");
                     }
 
-                    return new EncryptedId(decoded.Value);
+                    return new EncryptedInt(decoded.Value);
                 }
 
             case JsonTokenType.Number:
                 {
                     var value = reader.GetInt32();
-                    return new EncryptedId(value);
+                    return new EncryptedInt(value);
                 }
 
             default:
-                throw new JsonException($"Unexpected token {reader.TokenType} when parsing EncryptedId.");
+                throw new JsonException($"Unexpected token {reader.TokenType} when parsing EncryptedInt.");
         }
     }
 
-    public override void Write(Utf8JsonWriter writer, EncryptedId value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, EncryptedInt value, JsonSerializerOptions options)
     {
         var encoded = HashEngine.Encode(value.Value);
         writer.WriteStringValue(encoded);

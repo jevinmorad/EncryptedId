@@ -2,14 +2,14 @@
 using System.Data;
 using System.Globalization;
 
-namespace EncryptedId.Data;
+namespace EncryptedInt.Data;
 
 /// <summary>
-/// Dapper type handler for nullable <see cref="EncryptedId"/> (EncryptedId?).
+/// Dapper type handler for nullable <see cref="EncryptedInt"/> (EncryptedId?).
 /// </summary>
-public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedId?>
+public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedInt?>
 {
-    public override void SetValue(IDbDataParameter parameter, EncryptedId? value)
+    public override void SetValue(IDbDataParameter parameter, EncryptedInt? value)
     {
         if (!value.HasValue)
         {
@@ -21,7 +21,7 @@ public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedId?>
         }
     }
 
-    public override EncryptedId? Parse(object value)
+    public override EncryptedInt? Parse(object value)
     {
         if (value is null || value is DBNull)
         {
@@ -29,6 +29,6 @@ public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedId?>
         }
 
         var intValue = Convert.ToInt32(value, CultureInfo.InvariantCulture);
-        return new EncryptedId(intValue);
+        return new EncryptedInt(intValue);
     }
 }
