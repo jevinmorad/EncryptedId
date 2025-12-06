@@ -1,13 +1,14 @@
 ﻿using Dapper;
+using System;
 using System.Data;
 using System.Globalization;
 
 namespace EncryptedInt.Data;
 
 /// <summary>
-/// Dapper type handler for nullable <see cref="EncryptedInt"/> (EncryptedId?).
+/// Dapper type handler for nullable <see cref="EncryptedInt"/> (EncryptedInt?).
 /// </summary>
-public class NullableEncryptedIdHandler : SqlMapper.TypeHandler<EncryptedInt?>
+public class NullableEncryptedIntHandler : SqlMapper.TypeHandler<EncryptedInt?>
 {
     public override void SetValue(IDbDataParameter parameter, EncryptedInt? value)
     {

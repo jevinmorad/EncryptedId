@@ -9,10 +9,10 @@
 		<Version>1.0.0</Version>
 		<Authors>Jevin Morad</Authors>
 		<Company></Company>
-		<Description>A lightweight, fast, reversible ID obfuscation library for .NET. Provides EncryptedId type, JSON converters, Dapper handlers, and salted base-N encoding.</Description>
+		<Description>A lightweight, fast, reversible ID obfuscation library for .NET. Provides EncryptedInt type, JSON converters, Dapper handlers, and salted base-N encoding.</Description>
 		<PackageTags>encrypted id; id obfuscation; hashid; security; dapper; json; modelbinding</PackageTags>
-		<RepositoryUrl>https://github.com/jevinmorad/EncryptedId</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/jevinmorad/EncryptedId</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/jevinmorad/EncryptedInt</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/jevinmorad/EncryptedInt</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<IncludeSymbols>true</IncludeSymbols>
@@ -21,6 +21,10 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<Deterministic>true</Deterministic>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="EncryptedInt.Test" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Dapper" Version="2.1.35" />

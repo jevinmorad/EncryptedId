@@ -1,4 +1,5 @@
 ﻿using EncryptedInt.Converters;
+using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Text.Json.Serialization;
@@ -6,10 +7,10 @@ using System.Text.Json.Serialization;
 namespace EncryptedInt;
 
 /// <summary>
-/// Strongly typed integer ID used with the EncryptedId encoding/decoding pipeline.
+/// Strongly typed integer ID used with the EncryptedInt encoding/decoding pipeline.
 /// The <see cref="Value"/> is what you persist in the database (INT),
 /// while JSON / string conversion uses the configured obfuscated format
-/// via <see cref="EncryptedIdJsonConverter"/> and <see cref="EncryptedIntTypeConverter"/>.
+/// via <see cref="EncryptedIntJsonConverter"/> and <see cref="EncryptedIntTypeConverter"/>.
 /// </summary>
 [TypeConverter(typeof(EncryptedIntTypeConverter))]
 [JsonConverter(typeof(EncryptedIntJsonConverter))]
@@ -50,9 +51,9 @@ public readonly struct EncryptedInt : IEquatable<EncryptedInt>, IComparable<Encr
 
     public override int GetHashCode() => Value.GetHashCode();
 
-    public static bool operator ==(EncryptedInt left, EncryptedInt right) => left.Equals(right);
+    public static bool operator == (EncryptedInt left, EncryptedInt right) => left.Equals(right);
 
-    public static bool operator !=(EncryptedInt left, EncryptedInt right) => !left.Equals(right);
+    public static bool operator != (EncryptedInt left, EncryptedInt right) => !left.Equals(right);
 
     public int CompareTo(EncryptedInt other) => Value.CompareTo(other.Value);
 

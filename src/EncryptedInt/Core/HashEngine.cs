@@ -45,7 +45,7 @@ internal static class HashEngine
             if (string.IsNullOrWhiteSpace(salt))
             {
                 throw new InvalidOperationException(
-                    "EncryptedConfig.Salt must be configured before using EncryptedId.");
+                    "EncryptedConfig.Salt must be configured before using EncryptedInt.");
             }
 
             if (string.IsNullOrWhiteSpace(sourceAlphabet) || sourceAlphabet.Length < 16)

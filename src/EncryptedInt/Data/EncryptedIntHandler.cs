@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using System;
 using System.Data;
 using System.Globalization;
 
@@ -8,7 +9,7 @@ namespace EncryptedInt.Data;
 /// Dapper type handler for non-nullable <see cref="EncryptedInt"/>.
 /// Stores the underlying <see cref="EncryptedInt.Value"/> as an INT in the database.
 /// </summary>
-public class EncryptedIdHandler : SqlMapper.TypeHandler<EncryptedInt>
+public class EncryptedIntHandler : SqlMapper.TypeHandler<EncryptedInt>
 {
     public override void SetValue(IDbDataParameter parameter, EncryptedInt value)
     {
@@ -19,7 +20,7 @@ public class EncryptedIdHandler : SqlMapper.TypeHandler<EncryptedInt>
     {
         if (value is null || value is DBNull)
         {
-            throw new DataException("Cannot parse null database value into EncryptedId.");
+            throw new DataException("Cannot parse null database value into EncryptedInt.");
         }
 
         var intValue = Convert.ToInt32(value, CultureInfo.InvariantCulture);

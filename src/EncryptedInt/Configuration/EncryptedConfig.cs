@@ -1,7 +1,7 @@
 ﻿namespace EncryptedInt.Configuration;
 
 /// <summary>
-/// Global configuration for EncryptedId encoding/decoding.
+/// Global configuration for EncryptedInt encoding/decoding.
 /// You should typically configure these values at application startup.
 /// </summary>
 public static class EncryptedConfig
